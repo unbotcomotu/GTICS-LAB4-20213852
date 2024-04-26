@@ -12,7 +12,7 @@
 </div>
 <div class="row">
     <form action="/buscarEmpleados" method="get">
-        <input type="text" name="busqueda" th:value="${busqueda!=null and !busqueda.isEmpty()?${busqueda}:''}">
+        <input type="text" name="busqueda" th:value="${busqueda!=null and !busqueda.isEmpty()?busqueda:''}">
     </form>
 </div>
 <div class="row">

@@ -10,17 +10,17 @@
 <h1>Editar empleado</h1>
 
 <div class="row">
-    <form action="/editarEmpleado" method="post">
+    <form action="/guardarEmpleadoEditar" method="post">
         <div class="row">
             <label style="width: 30%;" for="">Departamento:</label>
             <select name="idDepartamento" id="">
-                <option th:each="departamento:${listaDepartamentos}" th:text="${departamento.departmentName}" th:value="${departamento.id}"></option>
+                <option th:selected="${departamento.id==empleado.department.id}" th:each="departamento:${listaDepartamentos}" th:text="${departamento.departmentName}" th:value="${departamento.id}"></option>
             </select>
         </div>
         <div class="row">
             <label style="width: 30%;" for="">Puesto:</label>
             <select name="idPuesto" id="">
-                <option th:each="puesto:${listaTrabajos}" th:text="${puesto.jobTitle}" th:value="${puesto.jobId}"></option>
+                <option  th:each="puesto:${listaTrabajos}" th:text="${puesto.jobTitle}" th:value="${puesto.jobId}"></option>
             </select>
         </div>
         <div class="row">
@@ -29,6 +29,7 @@
                 <option th:each="ciudad:${listaCiudades}" th:text="${ciudad.city}" th:value="${ciudad.id}"></option>
             </select>
         </div>
+        <input type="hidden" name="id" th:value="${empleado.id}">
         <button class="btn btn-primary" type="submit">Guardar</button>
         <a class="btn btn-primary" href="/empleados">Cancelar</a>
     </form>
